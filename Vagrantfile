@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 2048]
       v.customize ["modifyvm", :id, "--name", "api-marvel-01.wako057.net"]
     end
-    api01.vm.network "private_network", ip: "192.168.33.10"
+    api01.vm.network "private_network", ip: "192.168.33.42"
     api01.vm.provision "file", source: "~/.ssh/id_rsa_rundeck.pub", destination: "~/.ssh/me.pub"
     api01.vm.provision "shell", inline: <<-SHELL
     cat /home/vagrant/.ssh/me.pub >> /home/vagrant/.ssh/authorized_keys
@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 2048]
       v.customize ["modifyvm", :id, "--name", "api-marvel-02.wako057.net"]
     end
-    api02.vm.network "private_network", ip: "192.168.33.11"
+    api02.vm.network "private_network", ip: "192.168.33.43"
     api02.vm.provision "file", source: "~/.ssh/id_rsa_rundeck.pub", destination: "~/.ssh/me.pub"
     api02.vm.provision "shell", inline: <<-SHELL
     cat /home/vagrant/.ssh/me.pub >> /home/vagrant/.ssh/authorized_keys
